@@ -41,7 +41,8 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
   const [showNotifications, setShowNotifications] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 
-  const API_BASE = '/api';
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+
 
   /**
    * Fetch notifications

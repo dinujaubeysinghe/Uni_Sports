@@ -41,7 +41,8 @@ const AdminSportCoachAssignment: React.FC<AdminSportCoachAssignmentProps> = ({
   const [success, setSuccess] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const API_BASE = '/api';
+  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+
 
   /**
    * Fetch all sports

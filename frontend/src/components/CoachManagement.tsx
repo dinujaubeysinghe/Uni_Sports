@@ -43,7 +43,8 @@ const CoachManagement: React.FC<CoachManagementProps> = ({
   const [sport, setSport] = useState<Sport | null>(null);
 
   // API Base URL (adjust as needed)
-  const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+
 
   /**
    * Load coaches data from API
