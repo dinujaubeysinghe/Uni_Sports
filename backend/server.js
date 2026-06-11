@@ -41,10 +41,17 @@ const allowedOrigins = [
   'https://uni-sports-tau.vercel.app',
   ...(process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',').map((origin) => origin.trim()) : []),
 ];
+const allowedOriginPatterns = [
+  /^https:\/\/uni-sports.*\.vercel\.app$/,
+];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      allowedOrigins.includes(origin) ||
+      allowedOriginPatterns.some((pattern) => pattern.test(origin))
+    ) {
       callback(null, true);
       return;
     }
