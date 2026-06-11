@@ -1,6 +1,6 @@
 // services/apiClient.ts
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
 const BASE_URL = `${API_BASE}/api`;
 
 export const fetchWithAuth = async (endpoint: string, options: RequestInit = {}, isFormData = false) => {
