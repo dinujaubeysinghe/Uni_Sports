@@ -77,7 +77,7 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
    */
   const handleMarkAsRead = async (notificationId: string) => {
     try {
-      await fetch(`${API_BASE}/notifications/${notificationId}/mark-read`, {
+      await fetch(`${API_BASE}/notifications/${notificationId}/read`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });

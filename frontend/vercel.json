@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://unisports-8upjo.ondigitalocean.app/api/:path*"
+    },
+    {
+      "source": "/uploads/:path*",
+      "destination": "https://unisports-8upjo.ondigitalocean.app/uploads/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
