@@ -1,6 +1,7 @@
 // services/apiClient.ts
 
-const BASE_URL = "http://localhost:5001/api";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+const BASE_URL = `${API_BASE}/api`;
 
 export const fetchWithAuth = async (endpoint: string, options: RequestInit = {}, isFormData = false) => {
   const token = localStorage.getItem("token");

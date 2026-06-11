@@ -73,7 +73,7 @@ const CoachLocationBookingRequest: React.FC<CoachLocationBookingRequestProps> = 
   const [success, setSuccess] = useState<string | null>(null);
   const [clashWarning, setClashWarning] = useState<string | null>(null);
 
-  const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:5001';
+  const API_BASE = import.meta.env.VITE_API_URL ?? 'https://unisports-8upjo.ondigitalocean.app/';
 
   /**
    * Fetch locations and sports on mount
