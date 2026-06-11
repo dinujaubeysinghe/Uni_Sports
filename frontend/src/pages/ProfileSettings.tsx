@@ -31,7 +31,7 @@ type ProfileData = {
 export default function ProfileSettings() {
   const { user, role, logout, updateProfile } = useAuth();
   const navigate = useNavigate();
-  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
   const [profile, setProfile] = useState<ProfileData>({
     name: "",

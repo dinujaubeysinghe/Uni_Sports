@@ -48,7 +48,7 @@ export default function AdminLocations() {
 
   const getToken = () => localStorage.getItem("token") || "";
 
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
   const loadLocations = async () => {
     try {

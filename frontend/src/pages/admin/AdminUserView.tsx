@@ -13,7 +13,7 @@ import {
 import { Search, Users, UserCheck } from "lucide-react";
 import { UserRole } from "@/types";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 const MAIN_ADMIN_EMAIL = "admin@my.sliit.lk";
 
 const getAuthHeaders = () => {

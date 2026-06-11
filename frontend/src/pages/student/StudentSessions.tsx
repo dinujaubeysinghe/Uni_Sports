@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar, Clock, MapPin, AlertTriangle, Search, Loader } from "lucide-react";
 import { toast } from "sonner";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
 interface AvailableSession {
   _id: string;

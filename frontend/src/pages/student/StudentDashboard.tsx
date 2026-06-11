@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/carousel"
 import { ArrowRight, Boxes, CalendarDays, ChevronRight, Dumbbell, Medal, Users } from "lucide-react"
 
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
 const StudentDashboard = () => {
   const { user, token } = useAuth()

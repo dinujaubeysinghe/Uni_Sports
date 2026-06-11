@@ -187,7 +187,7 @@ export default function Checkout() {
 	useEffect(() => {
 		const loadBilling = async () => {
 			try {
-				const res = await fetch(`${API_BASE}/api/users/me/billing-details`, {
+				const res = await fetch(`${API_BASE}api/users/me/billing-details`, {
 					headers: { Authorization: `Bearer ${getToken()}` },
 				});
 
@@ -266,7 +266,7 @@ export default function Checkout() {
 			const form = new FormData();
 			form.append("receipt", selectedFile);
 
-			const res = await fetch(`${API_BASE}/api/upload/receipt`, {
+			const res = await fetch(`${API_BASE}api/upload/receipt`, {
 				method: "POST",
 				headers: { Authorization: `Bearer ${getToken()}` },
 				body: form,
@@ -306,7 +306,7 @@ export default function Checkout() {
 				throw new Error("Receipt upload is required");
 			}
 
-			const res = await fetch(`${API_BASE}/api/payments/manual`, {
+			const res = await fetch(`${API_BASE}api/payments/manual`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

@@ -19,7 +19,7 @@ interface SportData {
   coaches?: Array<{ id: string; name: string }>;
   createdAt?: string;
 }
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
 export default function AdminSports() {
   const [sports, setSports] = useState<SportData[]>([]);

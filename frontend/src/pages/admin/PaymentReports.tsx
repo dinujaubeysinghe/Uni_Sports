@@ -56,7 +56,7 @@ const chartPalette = {
 const exportedStatuses = new Set<PaymentStatus>(["approved", "paid", "delivered"]);
 
 export default function PaymentReports() {
-  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
   const [payments, setPayments] = useState<Payment[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -92,7 +92,7 @@ export default function PaymentReports() {
 
   useEffect(() => {
     loadPayments();
-  }, [API_BASE]);
+  }, []);
 
   const filteredPayments = useMemo(() => {
     const term = search.trim().toLowerCase();

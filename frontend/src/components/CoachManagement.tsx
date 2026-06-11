@@ -54,20 +54,20 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigi
     setError(null);
     try {
       // Fetch sport details
-      const sportRes = await fetch(`${API_BASE}/sports/${sportId}`);
+      const sportRes = await fetch(`${API_BASE}sports/${sportId}`);
       if (!sportRes.ok) throw new Error('Failed to fetch sport');
       const sportData = await sportRes.json();
       setSport(sportData.data);
 
       // Fetch assigned coaches
-      const assignedRes = await fetch(`${API_BASE}/sports/${sportId}/coaches`);
+      const assignedRes = await fetch(`${API_BASE}sports/${sportId}/coaches`);
       if (!assignedRes.ok) throw new Error('Failed to fetch assigned coaches');
       const assignedData = await assignedRes.json();
       setAssignedCoaches(assignedData.data);
 
       // Fetch available coaches
       const availableRes = await fetch(
-        `${API_BASE}/sports/${sportId}/available-coaches`,
+        `${API_BASE}sports/${sportId}/available-coaches`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -105,7 +105,7 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigi
 
     try {
       const response = await fetch(
-        `${API_BASE}/sports/${sportId}/coaches/${coachId}`,
+        `${API_BASE}sports/${sportId}/coaches/${coachId}`,
         {
           method: 'POST',
           headers: {
@@ -144,7 +144,7 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigi
 
     try {
       const response = await fetch(
-        `${API_BASE}/sports/${sportId}/coaches/${coachId}`,
+        `${API_BASE}sports/${sportId}/coaches/${coachId}`,
         {
           method: 'DELETE',
           headers: {

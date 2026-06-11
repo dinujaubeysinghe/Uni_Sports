@@ -54,7 +54,7 @@ const STATUS_OPTIONS: Array<"all" | PaymentStatus> = [
 	"paid",
 	"delivered",
 ];
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
 export default function PaymentVerification() {
 	const [payments, setPayments] = useState<Payment[]>([]);

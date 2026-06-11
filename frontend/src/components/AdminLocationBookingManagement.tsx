@@ -37,7 +37,7 @@ const AdminLocationBookingManagement: React.FC<AdminLocationBookingManagementPro
   const [showDeclineForm, setShowDeclineForm] = useState(false);
   const [declineReason, setDeclineReason] = useState('');
   const [loading, setLoading] = useState(false);
-  const API_BASE = import.meta.env.VITE_API_URL ?? 'https://unisports-8upjo.ondigitalocean.app/';
+  const API_BASE = import.meta.env.VITE_API_URL ?? 'https://unisports-8upjo.ondigitalocean.app';
 
   // Fetch all bookings
   useEffect(() => {

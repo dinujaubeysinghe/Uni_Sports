@@ -51,7 +51,7 @@ const AdminSportCoachAssignment: React.FC<AdminSportCoachAssignmentProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/sports?limit=100`, {
+      const res = await fetch(`${API_BASE}sports?limit=100`, {
         headers: { 'Authorization': `Bearer ${token}` },
         cache: 'no-store',
       });
@@ -73,10 +73,10 @@ const AdminSportCoachAssignment: React.FC<AdminSportCoachAssignmentProps> = ({
     setError(null);
     try {
       const [assignedRes, availableRes] = await Promise.all([
-        fetch(`${API_BASE}/sports/${sportId}/coaches`, {
+        fetch(`${API_BASE}sports/${sportId}/coaches`, {
           headers: { 'Authorization': `Bearer ${token}` },
         }),
-        fetch(`${API_BASE}/sports/${sportId}/available-coaches`, {
+        fetch(`${API_BASE}sports/${sportId}/available-coaches`, {
           headers: { 'Authorization': `Bearer ${token}` },
         }),
       ]);
@@ -118,7 +118,7 @@ const AdminSportCoachAssignment: React.FC<AdminSportCoachAssignmentProps> = ({
 
     try {
       const response = await fetch(
-        `${API_BASE}/sports/${selectedSport._id}/coaches/${coachId}`,
+        `${API_BASE}sports/${selectedSport._id}/coaches/${coachId}`,
         {
           method: 'POST',
           headers: {
@@ -163,7 +163,7 @@ const AdminSportCoachAssignment: React.FC<AdminSportCoachAssignmentProps> = ({
 
     try {
       const response = await fetch(
-        `${API_BASE}/sports/${selectedSport._id}/coaches/${coachId}`,
+        `${API_BASE}sports/${selectedSport._id}/coaches/${coachId}`,
         {
           method: 'DELETE',
           headers: {

@@ -7,7 +7,7 @@ import { DashboardLayout } from "@/components/DashboardLayout"
 import { toast } from "sonner";
 import CoachLocationBookingRequest from "@/components/CoachLocationBookingRequest";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/" ;
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app" ;
 
 interface Sport {
   _id: string;
@@ -136,7 +136,7 @@ export default function CoachDashboard() {
   const handleJoinRequestDecision = async (requestId: string, decision: 'accept' | 'decline') => {
     try {
       const endpoint = decision === 'accept' ? 'accept' : 'decline';
-      const res = await fetch(`/api/join-requests/${requestId}/${endpoint}`, {
+      const res = await fetch(`${API_BASE}/api/join-requests/${requestId}/${endpoint}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

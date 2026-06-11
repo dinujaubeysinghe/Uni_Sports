@@ -38,7 +38,7 @@ export default function CoachPayments() {
     loadPayments();
   }, []);
 
-   const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+   const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
   const getToken = () => localStorage.getItem("token") || "";
 
   const loadPayments = async () => {

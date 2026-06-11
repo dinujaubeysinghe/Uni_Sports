@@ -16,7 +16,7 @@ interface StudentData {
   studentId?: string;
   enrolledSports?: Array<{ _id: string; name: string }>;
 }
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app";
 
 export default function AdminStudents() {
   const [students, setStudents] = useState<StudentData[]>([]);

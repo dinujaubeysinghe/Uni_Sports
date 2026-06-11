@@ -82,8 +82,8 @@ const CoachLocationBookingRequest: React.FC<CoachLocationBookingRequestProps> = 
     const fetchData = async () => {
       try {
         const [locRes, sportRes] = await Promise.all([
-          fetch(`${API_BASE}/api/locations`, { headers: { 'Authorization': `Bearer ${token}` } }),
-          fetch(`${API_BASE}/api/sports`, { headers: { 'Authorization': `Bearer ${token}` } }),
+          fetch(`${API_BASE}api/locations`, { headers: { 'Authorization': `Bearer ${token}` } }),
+          fetch(`${API_BASE}api/sports`, { headers: { 'Authorization': `Bearer ${token}` } }),
         ]);
 
         if (locRes.ok && sportRes.ok) {
@@ -118,7 +118,7 @@ const CoachLocationBookingRequest: React.FC<CoachLocationBookingRequestProps> = 
     setError(null);
     try {
       const response = await fetch(
-        `${API_BASE}/api/location-bookings/coach/my-requests`,
+        `${API_BASE}api/location-bookings/coach/my-requests`,
         {
           headers: { 'Authorization': `Bearer ${token}` },
         }
@@ -176,7 +176,7 @@ const CoachLocationBookingRequest: React.FC<CoachLocationBookingRequestProps> = 
         throw new Error('Please fill in all required fields');
       }
 
-      const response = await fetch(`${API_BASE}/api/location-bookings`, {
+      const response = await fetch(`${API_BASE}api/location-bookings`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -246,7 +246,7 @@ const CoachLocationBookingRequest: React.FC<CoachLocationBookingRequestProps> = 
     }
 
     try {
-      const response = await fetch(`${API_BASE}/api/location-bookings/${requestId}`, {
+      const response = await fetch(`${API_BASE}api/location-bookings/${requestId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });
