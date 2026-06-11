@@ -66,18 +66,18 @@ npm run dev
 npm start
 ```
 
-The server will start on `http://localhost:5001`
+The server will start on `https://unisports-8upjo.ondigitalocean.app/`
 
 ## Step 5: Test the API
 
 ### Health Check
 ```bash
-curl http://localhost:5001/api/health
+curl https://unisports-8upjo.ondigitalocean.app/api/health
 ```
 
 ### Login
 ```bash
-curl -X POST http://localhost:5001/api/auth/login \
+curl -X POST https://unisports-8upjo.ondigitalocean.app/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "admin@unisports.com",
@@ -89,12 +89,12 @@ Copy the token from the response and use it in subsequent requests:
 
 ### Get All Sports (Public)
 ```bash
-curl http://localhost:5001/api/sports
+curl https://unisports-8upjo.ondigitalocean.app/api/sports
 ```
 
 ### Get My Profile (Protected)
 ```bash
-curl http://localhost:5001/api/auth/me \
+curl https://unisports-8upjo.ondigitalocean.app/api/auth/me \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 

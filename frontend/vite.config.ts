@@ -14,11 +14,11 @@ export default defineConfig(({ mode }) => ({
     },
     proxy: {
       "/api": {
-        target: process.env.VITE_API_URL || "http://localhost:5001",
+        target: process.env.VITE_API_URL || "https://unisports-8upjo.ondigitalocean.app/",
         changeOrigin: true,
       },
       "/uploads": {
-        target: process.env.VITE_API_URL || "http://localhost:5001",
+        target: process.env.VITE_API_URL || "https://unisports-8upjo.ondigitalocean.app/",
         changeOrigin: true,
       },
     },

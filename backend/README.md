@@ -70,7 +70,7 @@ backend/
    npm start
    ```
 
-The server will start on `http://localhost:5001` (or the port specified in `.env`)
+The server will start on `https://unisports-8upjo.ondigitalocean.app/` (or the port specified in `.env`)
 
 ## 📡 API Endpoints
 

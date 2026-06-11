@@ -1,6 +1,6 @@
 # UniSports Backend - API Documentation
 
-Base URL: `http://localhost:5001/api`
+Base URL: `https://unisports-8upjo.ondigitalocean.app/api`
 
 ---
 
