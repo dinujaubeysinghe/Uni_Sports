@@ -7,7 +7,7 @@ interface Variant {
   size: string;
   stockQuantity: number;
 }
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
 export default function AdminMerchandise() {
   const [merchandise, setMerchandise] = useState<any[]>([]);
   const [sportsList, setSportsList] = useState<any[]>([]); 
@@ -266,7 +266,7 @@ export default function AdminMerchandise() {
                       <div className="flex items-center gap-4">
                         <div className="flex-shrink-0 h-12 w-12 bg-[#151521] border border-slate-700 rounded-lg flex items-center justify-center overflow-hidden">
                           {item.image && item.image !== 'no-photo.jpg' ? (
-                            <img src={`${API_BASE}${item.image}`} alt={item.itemName} className="h-full w-full object-cover" />
+                            <img src={`${API_BASE}/${item.image}`} alt={item.itemName} className="h-full w-full object-cover" />
                           ) : (
                             <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">No Img</span>
                           )}

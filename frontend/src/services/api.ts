@@ -1,5 +1,5 @@
-// Real API service - using actual MERN backend endpoints
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
+
 
 export const sportsService = {
   getAll: async () => {

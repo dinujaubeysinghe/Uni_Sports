@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { merchandiseService } from "@/services/merchandiseService";
 import { DashboardLayout } from "@/components/DashboardLayout";
 
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
 
 type BillingDetails = {
 	name: string;
@@ -187,7 +187,7 @@ export default function Checkout() {
 	useEffect(() => {
 		const loadBilling = async () => {
 			try {
-				const res = await fetch(`${API_BASE}api/users/me/billing-details`, {
+				const res = await fetch(`${API_BASE}/api/users/me/billing-details`, {
 					headers: { Authorization: `Bearer ${getToken()}` },
 				});
 
@@ -266,7 +266,7 @@ export default function Checkout() {
 			const form = new FormData();
 			form.append("receipt", selectedFile);
 
-			const res = await fetch(`${API_BASE}api/upload/receipt`, {
+			const res = await fetch(`${API_BASE}/api/upload/receipt`, {
 				method: "POST",
 				headers: { Authorization: `Bearer ${getToken()}` },
 				body: form,
@@ -306,7 +306,7 @@ export default function Checkout() {
 				throw new Error("Receipt upload is required");
 			}
 
-			const res = await fetch(`${API_BASE}api/payments/manual`, {
+			const res = await fetch(`${API_BASE}/api/payments/manual`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -514,7 +514,7 @@ export default function Checkout() {
 						<CardTitle>Order Summary</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						<img src={item.image ? `${API_BASE}${item.image}` : ""} alt={item.itemName} className="h-44 w-full rounded-lg object-cover" />
+						<img src={item.image ? `${API_BASE}/${item.image}` : ""} alt={item.itemName} className="h-44 w-full rounded-lg object-cover" />
 						<div>
 							<p className="text-lg font-semibold">{item.itemName}</p>
 							<p className="text-xs uppercase tracking-wide text-gray-500">{item.category} • {item.sport?.name || "All Sports"}</p>

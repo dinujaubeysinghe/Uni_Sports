@@ -18,7 +18,7 @@ interface MerchandiseItem {
   image: string;
   variants: Variant[];
 }
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
  
 export default function StudentMerchandise() {
   const navigate = useNavigate();
@@ -132,7 +132,7 @@ export default function StudentMerchandise() {
                   {/* Image Section */}
                   <div className="h-56 bg-[#151521] relative border-b border-slate-700/50 group overflow-hidden">
                     {item.image && item.image !== 'no-photo.jpg' ? (
-                      <img src={`${API_BASE}${item.image}`} alt={item.itemName} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
+                      <img src={`${API_BASE}/${item.image}`} alt={item.itemName} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-500 text-sm font-medium">No Image</div>
                     )}
@@ -189,7 +189,7 @@ export default function StudentMerchandise() {
               {/* Left Side: Image (Hidden on small mobile) */}
               <div className="w-full md:w-1/2 bg-[#151521] hidden md:block relative border-r border-slate-700/50">
                 {selectedItem.image && selectedItem.image !== 'no-photo.jpg' ? (
-                  <img src={`${API_BASE}${selectedItem.image}`} alt={selectedItem.itemName} className="w-full h-full object-cover absolute inset-0 opacity-80" />
+                  <img src={`${API_BASE}/${selectedItem.image}`} alt={selectedItem.itemName} className="w-full h-full object-cover absolute inset-0 opacity-80" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-slate-500 absolute inset-0">No Image</div>
                 )}

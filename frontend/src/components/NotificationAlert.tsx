@@ -41,7 +41,7 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
   const [showNotifications, setShowNotifications] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 
- const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+ const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
 
 
   /**
@@ -49,7 +49,7 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
    */
   const fetchNotifications = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE}notifications`, {
+      const response = await fetch(`${API_BASE}/api/notifications`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
 
@@ -78,7 +78,7 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
    */
   const handleMarkAsRead = async (notificationId: string) => {
     try {
-      await fetch(`${API_BASE}notifications/${notificationId}/read`, {
+      await fetch(`${API_BASE}/api/notifications/${notificationId}/read`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -99,7 +99,7 @@ const NotificationAlert: React.FC<NotificationAlertProps> = ({
    */
   const handleDeleteNotification = async (notificationId: string) => {
     try {
-      await fetch(`${API_BASE}notifications/${notificationId}`, {
+      await fetch(`${API_BASE}/api/notifications/${notificationId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });

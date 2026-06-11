@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 import bgImage from "../assets/registerLogin.jpg"
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/"
+const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
 
 
 
@@ -110,7 +110,7 @@ function Register() {
     };
 
   try {
-    const response = await fetch(`${API_BASE}api/auth/register`, {
+    const response = await fetch(`${API_BASE}/api/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

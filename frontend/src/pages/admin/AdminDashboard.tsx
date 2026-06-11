@@ -76,7 +76,7 @@ type ApiResponse<T> = {
 };
 
 export default function AdminDashboard() {
-  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+  const API_BASE = (import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app").replace(/\/$/, "");
   const token = localStorage.getItem("token") || "";
 
   const [loading, setLoading] = useState(true);
@@ -107,11 +107,11 @@ export default function AdminDashboard() {
         setLoading(true);
 
         const [sportsData, usersData, sessionsData, inventoryData, paymentsData] = await Promise.all([
-          fetchJson<Sport>(`${API_BASE}api/sports`),
-          fetchJson<AppUser>(`${API_BASE}api/users`, true),
-          fetchJson<SessionEvent>(`${API_BASE}api/sessions`),
-          fetchJson<LocationItem>(`${API_BASE}api/inventory`, true),
-          fetchJson<Payment>(`${API_BASE}api/payments?limit=1000`, true),
+          fetchJson<Sport>(`${API_BASE}/api/sports`),
+          fetchJson<AppUser>(`${API_BASE}/api/users`, true),
+          fetchJson<SessionEvent>(`${API_BASE}/api/sessions`),
+          fetchJson<LocationItem>(`${API_BASE}/api/inventory`, true),
+          fetchJson<Payment>(`${API_BASE}/api/payments?limit=1000`, true),
         ]);
 
         const fallbackRevenue = paymentsData
@@ -122,7 +122,7 @@ export default function AdminDashboard() {
           .filter((payment) => payment.status === "pending")
           .reduce((sum, payment) => sum + Number(payment.amount || 0), 0);
 
-        const reportResponse = await fetch(`${API_BASE}api/payments/report`, {
+        const reportResponse = await fetch(`${API_BASE}/api/payments/report`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
