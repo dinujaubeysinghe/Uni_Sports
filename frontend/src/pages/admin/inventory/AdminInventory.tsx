@@ -3,7 +3,7 @@ import { inventoryService } from '../../../services/inventoryService';
 import { locationService } from '../../../services/locationService';
 import { sportService } from '../../../services/sportService';
 import { DashboardLayout } from "@/components/DashboardLayout";
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function AdminInventory() {
   const [inventory, setInventory] = useState([]);
   
@@ -232,7 +232,7 @@ export default function AdminInventory() {
                       <div className="flex items-center gap-4">
                         <div className="flex-shrink-0 h-12 w-12 bg-[#151521] border border-slate-700 rounded-lg flex items-center justify-center overflow-hidden">
                           {item.image && item.image !== 'no-photo.jpg' ? (
-                            <img src={`http://localhost:5001${item.image}`} alt={item.itemName} className="h-full w-full object-cover" />
+                            <img src={`${API_BASE}${item.image}`} alt={item.itemName} className="h-full w-full object-cover" />
                           ) : (
                             <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">No Img</span>
                           )}

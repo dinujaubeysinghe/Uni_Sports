@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar, Clock, MapPin, AlertTriangle, Search, Loader } from "lucide-react";
 import { toast } from "sonner";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 interface AvailableSession {
   _id: string;
@@ -402,6 +402,10 @@ export default function StudentSessions() {
               {bookedSessions.map(session => {
                 const sessionDate = new Date(session.startTime);
                 const sessionEndDate = new Date(session.endTime);
+
+                function handleCancelSession(_id: string, arg1: string): void {
+                  throw new Error("Function not implemented.");
+                }
 
                 return (
                   <div

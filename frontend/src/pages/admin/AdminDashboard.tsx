@@ -76,7 +76,7 @@ type ApiResponse<T> = {
 };
 
 export default function AdminDashboard() {
-  const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
   const token = localStorage.getItem("token") || "";
 
   const [loading, setLoading] = useState(true);

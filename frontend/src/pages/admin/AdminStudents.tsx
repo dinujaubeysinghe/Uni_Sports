@@ -16,6 +16,7 @@ interface StudentData {
   studentId?: string;
   enrolledSports?: Array<{ _id: string; name: string }>;
 }
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function AdminStudents() {
   const [students, setStudents] = useState<StudentData[]>([]);
@@ -34,7 +35,7 @@ export default function AdminStudents() {
   const loadStudents = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5001/api/users?role=student", {
+      const res = await fetch(`${API_BASE}/api/users?role=student`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load students");
@@ -90,8 +91,8 @@ export default function AdminStudents() {
     try {
       const method = editingStudent ? "PUT" : "POST";
       const url = editingStudent
-        ? `http://localhost:5001/api/users/${editingStudent._id}`
-        : "http://localhost:5001/api/users";
+        ? `${API_BASE}/api/users/${editingStudent._id}`
+        : `${API_BASE}/api/users`;
 
       const body = editingStudent
         ? { name: form.name, email: form.email, studentId: form.studentId, password: form.password || undefined }
@@ -128,7 +129,7 @@ export default function AdminStudents() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/users/${id}`, {
+      const res = await fetch(`${API_BASE}/api/users/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${getToken()}` }
       });

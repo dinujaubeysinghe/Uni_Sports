@@ -86,7 +86,7 @@ export default function StudentPayments() {
   const loadPayments = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5001/api/payments/my", {
+      const res = await fetch("https://unisports-8upjo.ondigitalocean.app//api/payments/my", {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load payments");
@@ -153,7 +153,7 @@ export default function StudentPayments() {
 
   const loadBillingDetails = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/users/me/billing-details', {
+      const res = await fetch('https://unisports-8upjo.ondigitalocean.app/api/users/me/billing-details', {
         headers: { Authorization: `Bearer ${getToken()}` },
       });
 
@@ -248,7 +248,7 @@ export default function StudentPayments() {
 
     if (validateForm()) {
       try {
-        const res = await fetch('http://localhost:5001/api/users/me/billing-details', {
+        const res = await fetch('https://unisports-8upjo.ondigitalocean.app/api/users/me/billing-details', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

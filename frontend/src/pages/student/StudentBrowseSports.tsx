@@ -6,13 +6,15 @@ import { Badge } from "@/components/ui/badge";
 import { Search, Users, ChevronRight, Clock, AlertTriangle, X, Loader } from "lucide-react";
 import { toast } from "sonner";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 interface PendingRequest {
   _id: string;
   session: {
     _id: string;
-    sport: { name: string };
+    sport: {
+      _id: string; name: string 
+};
     startTime: string;
     endTime: string;
   };

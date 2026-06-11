@@ -19,6 +19,7 @@ interface SportData {
   coaches?: Array<{ id: string; name: string }>;
   createdAt?: string;
 }
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function AdminSports() {
   const [sports, setSports] = useState<SportData[]>([]);
@@ -40,7 +41,7 @@ export default function AdminSports() {
   const loadSports = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5001/api/sports", {
+      const res = await fetch(`${API_BASE}/api/sports`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load sports");
@@ -128,8 +129,8 @@ export default function AdminSports() {
     try {
       const method = editingSport ? "PUT" : "POST";
       const url = editingSport 
-        ? `http://localhost:5001/api/sports/${editingSport._id}`
-        : "http://localhost:5001/api/sports";
+        ? `${API_BASE}/api/sports/${editingSport._id}`
+        : `${API_BASE}/api/sports`;
       
       const res = await fetch(url, {
         method,
@@ -168,7 +169,7 @@ export default function AdminSports() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/sports/${id}`, {
+      const res = await fetch(`${API_BASE}/api/sports/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${getToken()}` }
       });

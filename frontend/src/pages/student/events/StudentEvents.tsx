@@ -12,7 +12,7 @@ interface TeamMember {
   email: string;
   studentId?: string;
 }
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function StudentEvents() {
   const { user } = useAuth();
   const [events, setEvents] = useState<any[]>([]);
@@ -262,7 +262,7 @@ export default function StudentEvents() {
                     className="h-40 bg-[#151521] relative border-b border-slate-700/50 cursor-pointer group overflow-hidden"
                   >
                     {event.imageUrl ? (
-                      <img src={`http://localhost:5001${event.imageUrl}`} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100" />
+                      <img src={`${API_BASE}${event.imageUrl}`} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-500 font-medium text-sm">No Banner Image</div>
                     )}
@@ -317,7 +317,7 @@ export default function StudentEvents() {
                           event.myRegistrationStatus === 'confirmed' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
                           event.myRegistrationStatus === 'waitlisted' ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
                           'bg-slate-500/10 text-slate-400 border-slate-500/20'
-                        }`}>
+                        }}`}>
                           {event.myRegistrationStatus === 'confirmed' ? '✓ Confirmed' : '⏳ Waitlisted'}
                         </button>
                       ) : (
@@ -354,7 +354,7 @@ export default function StudentEvents() {
               
               <div className="h-48 md:h-64 bg-[#151521] relative shrink-0">
                 {viewingEventDetails.imageUrl ? (
-                  <img src={`http://localhost:5001${viewingEventDetails.imageUrl}`} alt={viewingEventDetails.title} className="w-full h-full object-cover opacity-80" />
+                  <img src={`${API_BASE}${viewingEventDetails.imageUrl}`} alt={viewingEventDetails.title} className="w-full h-full object-cover opacity-80" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-slate-500">No Image Available</div>
                 )}

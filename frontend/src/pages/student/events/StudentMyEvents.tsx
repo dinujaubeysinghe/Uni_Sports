@@ -9,7 +9,7 @@ interface TeamMember {
   email: string;
   studentId?: string;
 }
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function StudentMyEvents() {
   const { user } = useAuth();
   const [myRegistrations, setMyRegistrations] = useState<any[]>([]);

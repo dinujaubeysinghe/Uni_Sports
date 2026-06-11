@@ -54,6 +54,7 @@ const STATUS_OPTIONS: Array<"all" | PaymentStatus> = [
 	"paid",
 	"delivered",
 ];
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function PaymentVerification() {
 	const [payments, setPayments] = useState<Payment[]>([]);
@@ -78,7 +79,7 @@ export default function PaymentVerification() {
 	const loadTransactions = async () => {
 		try {
 			setLoading(true);
-			const res = await fetch("http://localhost:5001/api/payments?limit=300", {
+			const res = await fetch(`${API_BASE}/api/payments?limit=300`, {
 				headers: { Authorization: `Bearer ${getToken()}` },
 			});
 

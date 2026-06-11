@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarDays, MapPin, Users, Link } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function StudentEvents() {
   const [events, setEvents] = useState<any[]>([]);

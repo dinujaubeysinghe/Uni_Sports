@@ -7,7 +7,7 @@ import { DashboardLayout } from "@/components/DashboardLayout"
 import { toast } from "sonner";
 import CoachLocationBookingRequest from "@/components/CoachLocationBookingRequest";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/" ;
 
 interface Sport {
   _id: string;

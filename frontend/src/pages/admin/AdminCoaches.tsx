@@ -30,13 +30,13 @@ export default function AdminCoaches() {
   useEffect(() => {
     loadCoaches();
   }, []);
-
+   const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
   const getToken = () => localStorage.getItem("token") || "";
 
   const loadCoaches = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5001/api/users?role=coach", {
+      const res = await fetch(`${API_BASE}/api/users?role=coach`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load coaches");
@@ -142,8 +142,8 @@ export default function AdminCoaches() {
     try {
       const method = editingCoach ? "PUT" : "POST";
       const url = editingCoach
-        ? `http://localhost:5001/api/users/${editingCoach._id}`
-        : "http://localhost:5001/api/users";
+        ? `${API_BASE}/api/users/${editingCoach._id}`
+        : `${API_BASE}/api/users`;
 
       const body = editingCoach 
         ? { name: form.name, email: form.email, phone: form.phone, specialization: form.specialization, password: form.password || undefined }
@@ -186,7 +186,7 @@ export default function AdminCoaches() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/users/${id}`, {
+      const res = await fetch(`${API_BASE}/api/users/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${getToken()}` }
       });

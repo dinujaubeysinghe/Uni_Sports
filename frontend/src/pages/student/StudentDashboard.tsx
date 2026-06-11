@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/carousel"
 import { ArrowRight, Boxes, CalendarDays, ChevronRight, Dumbbell, Medal, Users } from "lucide-react"
 
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+
 const StudentDashboard = () => {
   const { user, token } = useAuth()
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
@@ -68,11 +70,11 @@ const StudentDashboard = () => {
         setSessionsLoading(true)
         setSessionsError("")
         const [acceptedRes, pendingRes] = await Promise.all([
-          fetch(`/api/join-requests/student/my-requests?status=accepted`, {
+          fetch(`${API_BASE}/api/join-requests/student/my-requests?status=accepted`, {
             headers: { "Authorization": `Bearer ${token}` },
             cache: "no-store",
           }),
-          fetch(`/api/join-requests/student/my-requests?status=pending`, {
+          fetch(`${API_BASE}/api/join-requests/student/my-requests?status=pending`, {
             headers: { "Authorization": `Bearer ${token}` },
             cache: "no-store",
           }),
@@ -114,7 +116,7 @@ const StudentDashboard = () => {
 
     setDeletingId(requestId)
     try {
-      const response = await fetch(`/api/join-requests/${requestId}`, {
+      const response = await fetch(`${API_BASE}/api/join-requests/${requestId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` },
       })
@@ -139,7 +141,7 @@ const StudentDashboard = () => {
 
     setDeletingId(sessionId)
     try {
-      const response = await fetch(`/api/sessions/${sessionId}/unenroll`, {
+      const response = await fetch(`${API_BASE}/api/sessions/${sessionId}/unenroll`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` },
       })

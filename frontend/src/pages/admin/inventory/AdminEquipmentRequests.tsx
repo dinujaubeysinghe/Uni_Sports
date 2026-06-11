@@ -32,7 +32,7 @@ interface BorrowRequest {
   notes?: string;
   createdAt: string;
 }
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function AdminEquipmentRequests() {
   const [requests, setRequests] = useState<BorrowRequest[]>([]);
   const [loading, setLoading] = useState(true);

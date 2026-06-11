@@ -12,7 +12,7 @@ import { Plus, Search, Pencil, Trash2, CalendarDays, MapPin, Users, Link } from 
 import { Event } from "@/types";
 import { toast } from "sonner";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 const STATUS_COLORS: Record<string, string> = {
   upcoming:  "bg-blue-100 text-blue-700",

@@ -38,6 +38,7 @@ interface Registration {
   status: 'pending' | 'confirmed' | 'waitlisted' | 'cancelled';
   createdAt: string;
 }
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function AdminEvents() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -379,7 +380,7 @@ export default function AdminEvents() {
                 <div key={event._id} className="bg-[#1e1e2d] rounded-xl border border-slate-700/50 overflow-hidden flex flex-col hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(79,70,229,0.15)] transition duration-300">
                   <div className="h-40 bg-[#151521] relative border-b border-slate-700/50 overflow-hidden group">
                     {event.imageUrl ? (
-                      <img src={`http://localhost:5001${event.imageUrl}`} alt={event.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
+                      <img src={`${API_BASE}${event.imageUrl}`} alt={event.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-500 font-medium text-sm">No Banner Image</div>
                     )}

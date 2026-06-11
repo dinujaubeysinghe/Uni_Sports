@@ -48,10 +48,12 @@ export default function AdminLocations() {
 
   const getToken = () => localStorage.getItem("token") || "";
 
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
+
   const loadLocations = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5001/api/locations", {
+      const res = await fetch(`${API_BASE}/api/locations`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load locations");
@@ -141,8 +143,8 @@ export default function AdminLocations() {
     try {
       const method = editingLocation ? "PUT" : "POST";
       const url = editingLocation
-        ? `http://localhost:5001/api/locations/${editingLocation._id}`
-        : "http://localhost:5001/api/locations";
+        ? `${API_BASE}/api/locations/${editingLocation._id}`
+        : `${API_BASE}/api/locations`;
 
       const res = await fetch(url, {
         method,
@@ -181,7 +183,7 @@ export default function AdminLocations() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/locations/${id}`, {
+      const res = await fetch(`${API_BASE}/api/locations/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${getToken()}` }
       });

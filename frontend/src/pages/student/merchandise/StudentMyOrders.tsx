@@ -20,6 +20,7 @@ interface Order {
   fulfillmentStatus: string;
   createdAt: string;
 }
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function StudentMyOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -115,7 +116,7 @@ export default function StudentMyOrders() {
                       <div className="flex items-center gap-4">
                         <div className="flex-shrink-0 h-12 w-12 bg-[#151521] rounded-lg border border-slate-700 flex items-center justify-center overflow-hidden">
                           {order.merchandise?.image && order.merchandise.image !== 'no-photo.jpg' ? (
-                            <img src={`http://localhost:5001${order.merchandise.image}`} alt={order.merchandise.itemName} className="h-full w-full object-cover" />
+                            <img src={`${API_BASE}${order.merchandise.image}`} alt={order.merchandise.itemName} className="h-full w-full object-cover" />
                           ) : (
                             <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">No Img</span>
                           )}

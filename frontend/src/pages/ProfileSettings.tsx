@@ -31,7 +31,7 @@ type ProfileData = {
 export default function ProfileSettings() {
   const { user, role, logout, updateProfile } = useAuth();
   const navigate = useNavigate();
-  const API_BASE = import.meta.env.VITE_API_URL ?? "";
+  const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
   const [profile, setProfile] = useState<ProfileData>({
     name: "",
@@ -164,7 +164,7 @@ export default function ProfileSettings() {
 
   setLoading(true);
   try {
-    const resp = await fetch("/api/users/change-password", {
+    const resp = await fetch(`${API_BASE}/api/users/change-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(password),
@@ -183,7 +183,7 @@ export default function ProfileSettings() {
 
     setLoading(true);
     try {
-      const resp = await fetch("/api/users/change-password", {
+      const resp = await fetch(`${API_BASE}/api/users/change-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(password),

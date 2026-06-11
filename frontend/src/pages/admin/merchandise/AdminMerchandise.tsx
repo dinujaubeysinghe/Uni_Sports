@@ -7,7 +7,7 @@ interface Variant {
   size: string;
   stockQuantity: number;
 }
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function AdminMerchandise() {
   const [merchandise, setMerchandise] = useState<any[]>([]);
   const [sportsList, setSportsList] = useState<any[]>([]); 

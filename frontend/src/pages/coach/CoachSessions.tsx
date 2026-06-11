@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Calendar, Clock, MapPin, AlertTriangle, Search, Pencil } from "lucide-react";
 import { toast } from "sonner";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
 export default function CoachSessions() {
   const token = localStorage.getItem("token");

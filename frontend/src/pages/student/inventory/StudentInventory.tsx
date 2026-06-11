@@ -20,7 +20,7 @@ interface InventoryItem {
   waitlistCount?: number;
   isWaitlistedByMe?: boolean;
 }
-
+ const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 export default function StudentInventory() {
   const [inventory, setInventory] = useState<InventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -187,7 +187,7 @@ export default function StudentInventory() {
               {/* Image Section */}
               <div className="h-48 bg-[#151521] relative border-b border-slate-700/50 group overflow-hidden">
                 {item.image && item.image !== 'no-photo.jpg' ? (
-                  <img src={`http://localhost:5001${item.image}`} alt={item.itemName} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
+                  <img src={`${API_BASE}${item.image}`} alt={item.itemName} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 group-hover:scale-105" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-slate-500 text-sm font-medium">No Image</div>
                 )}

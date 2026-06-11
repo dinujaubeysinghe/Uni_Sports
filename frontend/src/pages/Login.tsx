@@ -7,6 +7,7 @@ import bgImage from "../assets/registerLogin.jpg"
 function Login() {
   const navigate = useNavigate()
   const { login, role } = useAuth()
+   const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

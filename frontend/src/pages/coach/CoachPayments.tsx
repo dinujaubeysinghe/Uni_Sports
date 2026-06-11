@@ -38,13 +38,14 @@ export default function CoachPayments() {
     loadPayments();
   }, []);
 
+   const API_BASE = import.meta.env.VITE_API_URL ?? "https://unisports-8upjo.ondigitalocean.app/";
   const getToken = () => localStorage.getItem("token") || "";
 
   const loadPayments = async () => {
     try {
       setLoading(true);
       // Coaches can view payments for their sessions
-      const res = await fetch("http://localhost:5001/api/payments", {
+      const res = await fetch(`${API_BASE}/api/payments`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error("Failed to load payments");
